@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Search and Reports</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container container-wide">
+        <div class="todo-card library-card">
+            <div class="header">
+                <h1>Search &amp; Reports</h1>
+                <div class="header-actions">
+                    <a href="/library" class="btn btn-secondary btn-link">Books &amp; Authors</a>
+                    <form action="/logout" method="POST" class="logout-form">
+                        <button type="submit" class="btn btn-secondary">Log out</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tabs" id="tabs">
+                <button type="button" class="tab active" data-tab="f21">F2.1 Search</button>
+                <button type="button" class="tab" data-tab="f22">F2.2 Catalogue</button>
+                <button type="button" class="tab" data-tab="f23">F2.3 Reports</button>
+                <button type="button" class="tab" data-tab="f24">F2.4 Loans</button>
+                <button type="button" class="tab" data-tab="f25">F2.5 Most borrowed</button>
+                <button type="button" class="tab" data-tab="f26">F2.6 Authors &amp; books</button>
+            </div>
+
+            <p class="page-error" id="pageError"></p>
+
+            <!-- F2.1 Search books -->
+            <section class="panel" id="f21">
+                <form id="searchForm" class="search-form" novalidate>
+                    <div class="form-group">
+                        <label for="kTitle">Title keyword</label>
+                        <input type="text" id="kTitle" placeholder="e.g. the">
+                    </div>
+                    <div class="form-group">
+                        <label for="kMin">Minimum price</label>
+                        <input type="text" id="kMin" inputmode="decimal" placeholder="e.g. 15">
+                        <span class="error" id="kMinError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="kMax">Maximum price</label>
+                        <input type="text" id="kMax" inputmode="decimal" placeholder="e.g. 20">
+                        <span class="error" id="kMaxError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="kCategory">Category</label>
+                        <select id="kCategory"><option value="">All categories</option></select>
+                        <span class="error" id="kCategoryError"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <div id="f21Result"></div>
+            </section>
+
+            <section class="panel" id="f22" style="display: none;"><div class="result"></div></section>
+            <section class="panel" id="f23" style="display: none;"><div class="result"></div></section>
+            <section class="panel" id="f24" style="display: none;"><div class="result"></div></section>
+            <section class="panel" id="f25" style="display: none;"><div class="result"></div></section>
+            <section class="panel" id="f26" style="display: none;"><div class="result"></div></section>
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+</html>
